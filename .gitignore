@@ -19,3 +19,4 @@ local.properties
 /.idea/migrations.xml
 /.idea/vcs.xml
 /.idea/inspectionProfiles/
+*.pdf
