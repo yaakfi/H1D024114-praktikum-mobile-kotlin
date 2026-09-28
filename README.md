@@ -14,21 +14,38 @@ Aplikasi Android berbasis **Jetpack Compose** untuk platform **Jualan**, sebuah 
 
 ## ✨ Fitur Aplikasi
 
-1. **Layar Informasi (Basic Info Screen)**
+1. **Layar Daftar Produk UMKM (DaftarProdukScreen)**
+   - Kolom pencarian (*Search Bar*) interaktif dengan `OutlinedTextField`.
+   - Filter daftar produk berdasarkan kategori menggunakan `LazyRow`.
+   - Grid produk dinamis menggunakan `LazyVerticalGrid`.
+   - Simulasi proses asinkronus (loading indicator `CircularProgressIndicator`) menggunakan `LaunchedEffect` dan Coroutine `delay`.
+   - Menu aksi di TopAppBar (ikon Cart dan menu dropdown *Hubungi Kami*).
+   - Navigasi ke Layar Detail Produk dan Layar Hubungi Kami.
+
+2. **Layar Detail Produk (DetailProductScreen)**
+   - TopAppBar dengan navigasi kembali (*Back Navigation*).
+   - Tampilan detail produk (gambar, nama, harga, deskripsi, dan stok).
+   - Simulasi loading asinkronus saat memuat data produk dengan `LaunchedEffect`.
+   - Pengaturan jumlah beli (*quantity*) dengan tombol minus/plus dan validasi stok produk.
+   - Tombol *Tambah ke Keranjang* interaktif dengan umpan balik Toast.
+
+3. **Layar Formulir Kontak (Hubungi Kami Screen)**
+   - Penerapan **State Hoisting** dan **Unidirectional Data Flow (UDF)** memisahkan stateful dan stateless composable.
+   - Validasi input real-time (format email mengandung '@', panjang pesan minimal 10 karakter).
+   - Pilihan tipe pesan dengan `ExposedDropdownMenuBox` (*Pertanyaan*, *Keluhan*, *Saran*).
+   - Pemilihan file gambar dari galeri perangkat menggunakan `ActivityResultContracts.PickVisualMedia` (`PhotoPicker`).
+   - Kartu pratinjau nama berkas gambar terpilih (`imageUri.lastPathSegment`).
+   - Kotak centang persetujuan (*Checkbox*) syarat & ketentuan.
+   - Tombol submit yang aktif otomatis hanya saat seluruh kondisi validasi formulir terpenuhi.
+   - Notifikasi interaktif *Snackbar* (*"Pesan Terkirim!"*) dengan Coroutine scope.
+
+4. **Layar Informasi (Basic Info Screen)**
    - TopAppBar dengan judul dan ikon informasi.
    - Tampilan logo aplikasi berbentuk melingkar (*circular clip*).
    - Kartu informasi deskripsi platform UMKM lokal Purbalingga.
    - Kartu misi: *Memajukan UMKM Lokal*.
-   - Tombol navigasi untuk berpindah ke layar *Hubungi Kami*.
 
-2. **Layar Formulir Kontak (Hubungi Kami Screen)**
-   - TopAppBar dengan tombol navigasi kembali (*Back Navigation*).
-   - Kolom isian *Email* dengan ikon email.
-   - Kolom isian *Pesan* multiline.
-   - Tombol kirim pesan dengan ikon *Send*.
-   - Notifikasi interaktif *Snackbar* (*"Pesan Terkirim"*).
-
-3. **Tema dan Tipografi (Theme & Typography)**
+5. **Tema dan Tipografi (Theme & Typography)**
    - Skema warna kustom (Primary, Secondary, Tertiary/PrimaryVariant, Background, Surface).
    - Tipografi Material 3 yang disesuaikan (*headlineMedium*, *titleLarge*, *bodyLarge*, *bodyMedium*, *labelLarge*).
 
