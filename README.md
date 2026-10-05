@@ -15,17 +15,22 @@ Aplikasi Android berbasis **Jetpack Compose** untuk platform **Jualan**, sebuah 
 ## ✨ Fitur Aplikasi
 
 1. **Layar Daftar Produk UMKM (DaftarProdukScreen)**
+   - Pengambilan data produk dan kategori secara live dari REST API via **Retrofit**.
+   - Integrasi arsitektur **MVVM** menggunakan `ProductViewModel` dan pengamatan reaktif UI State (`StateFlow` / `collectAsState`).
+   - Manajemen status UI komprehensif: *Loading* (`CircularProgressIndicator`), *Error* (tampilan pesan galat), dan *Success*.
+   - Pemuatan gambar asinkronus dari server internet menggunakan **Coil** (`AsyncImage`).
    - Kolom pencarian (*Search Bar*) interaktif dengan `OutlinedTextField`.
    - Filter daftar produk berdasarkan kategori menggunakan `LazyRow`.
    - Grid produk dinamis menggunakan `LazyVerticalGrid`.
-   - Simulasi proses asinkronus (loading indicator `CircularProgressIndicator`) menggunakan `LaunchedEffect` dan Coroutine `delay`.
    - Menu aksi di TopAppBar (ikon Cart dan menu dropdown *Hubungi Kami*).
    - Navigasi ke Layar Detail Produk dan Layar Hubungi Kami.
 
 2. **Layar Detail Produk (DetailProductScreen)**
+   - Konsumsi data produk live dari `ProductViewModel` berdasarkan `productId`.
+   - Pemuatan gambar produk dari server menggunakan `AsyncImage` Coil.
+   - Penanganan status UI (*Loading*, *Error*, dan *Success* / produk tidak ditemukan).
    - TopAppBar dengan navigasi kembali (*Back Navigation*).
    - Tampilan detail produk (gambar, nama, harga, deskripsi, dan stok).
-   - Simulasi loading asinkronus saat memuat data produk dengan `LaunchedEffect`.
    - Pengaturan jumlah beli (*quantity*) dengan tombol minus/plus dan validasi stok produk.
    - Tombol *Tambah ke Keranjang* interaktif dengan umpan balik Toast.
 
@@ -55,9 +60,12 @@ Aplikasi Android berbasis **Jetpack Compose** untuk platform **Jualan**, sebuah 
 
 - **Bahasa**: [Kotlin](https://kotlinlang.org/)
 - **UI Toolkit**: [Jetpack Compose](https://developer.android.com/jetpack/compose) (Material 3)
+- **Arsitektur**: MVVM (Model-View-ViewModel) dengan Kotlin Coroutines & `StateFlow`
+- **Networking**: [Retrofit 3.0.0](https://square.github.io/retrofit/) & Gson Converter
+- **Image Loading**: [Coil](https://coil-kt.github.io/coil/) (`io.coil-kt:coil-compose:2.6.0`)
 - **Navigasi**: [Jetpack Navigation Compose](https://developer.android.com/jetpack/compose/navigation)
-- **Min SDK**: API 24 (Android 7.0)
-- **Target SDK**: API 35 (Android 15)
+- **Min SDK**: API 29
+- **Target SDK**: API 37
 
 ---
 
